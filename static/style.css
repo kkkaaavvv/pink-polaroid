@@ -1,0 +1,294 @@
+/* Google fonts close to Canva vibe */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=Great+Vibes&family=Baloo+2:wght@400;600;700&display=swap');
+
+:root {
+  --pink-bg: linear-gradient(135deg, #f9b3ff 0%, #ffb8c7 40%, #ffe0b5 100%);
+  --soft-pink: #ffe9f1;
+  --accent-pink: #ff4da6;
+  --accent-pink-dark: #ff2c95;
+  --text-main: #ff1f70;
+  --text-dark: #5a2450;
+  --card: #ffffff;
+}
+
+/* globally */
+body, .stApp {
+  margin: 0;
+  padding: 0;
+  font-family: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #fffafc;
+}
+
+/* remove default streamlit padding */
+.block-container {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  max-width: 1100px !important;
+}
+
+/* ---------------- HERO ---------------- */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--pink-bg);
+}
+
+.hero-inner {
+  text-align: center;
+  padding: 60px 24px;
+}
+
+.hero-line {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(38px, 6vw, 64px);
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+/* ---------------- CAMERA SECTION ---------------- */
+
+.camera-section {
+  background: var(--soft-pink);
+  padding: 60px 16px 80px;
+}
+
+.camera-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.camera-text {
+  flex: 1 1 320px;
+  color: var(--text-main);
+}
+
+.camera-text h2 {
+  font-family: 'Baloo 2', cursive;
+  font-size: 32px;
+  line-height: 1.1;
+  margin: 0 0 10px;
+}
+
+/* polaroid frame */
+.camera-polaroid-wrapper {
+  flex: 1 1 320px;
+  display: flex;
+  justify-content: center;
+}
+
+.camera-polaroid {
+  background: #fdfdfd;
+  border-radius: 18px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+  padding: 10px 10px 24px;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+}
+
+.camera-top {
+  height: 8px;
+  border-radius: 12px 12px 0 0;
+  background: #ffe5f4;
+}
+
+.camera-bottom {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.camera-caption {
+  font-family: 'Great Vibes', cursive;
+  font-size: 26px;
+  color: var(--text-main);
+}
+
+/* style the Streamlit camera widget to sit nicely like the photo */
+[data-testid="stCameraInput"] {
+  margin-top: 10px;
+  background: #f7f7f7;
+  border-radius: 14px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.04);
+  padding: 6px 6px 10px;
+}
+
+[data-testid="stCameraInput"] > div {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* camera button inside widget */
+[data-testid="stCameraInput"] button {
+  background: var(--accent-pink) !important;
+  color: #ffe6f7 !important;
+  font-weight: 600;
+  border-radius: 999px !important;
+  border: none !important;
+  padding: 8px 20px !important;
+  box-shadow: 0 8px 18px rgba(255,77,166,0.3);
+}
+
+[data-testid="stCameraInput"] button:hover {
+  background: var(--accent-pink-dark) !important;
+}
+
+/* dark strip behind text → make transparent-ish */
+[data-testid="stCameraInput"] > div > div:last-child {
+  background: transparent !important;
+}
+
+/* ---------------- RESULT SECTION ---------------- */
+
+.result-section {
+  padding: 60px 16px 80px;
+  background: #ffffff;
+}
+
+.result-header {
+  max-width: 1100px;
+  margin: 0 auto 32px;
+}
+
+.result-sub {
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-main);
+  font-weight: 700;
+}
+
+.result-title {
+  font-family: 'Baloo 2', cursive;
+  font-size: 36px;
+  color: var(--text-main);
+  margin: 6px 0 0;
+}
+
+.result-mood {
+  display: inline-block;
+  margin-left: 8px;
+  padding-bottom: 4px;
+  border-bottom: 3px dotted #ff98c5;
+}
+
+/* layout */
+.result-layout {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  align-items: flex-start;
+}
+
+/* left: cover */
+.result-left {
+  flex: 0 0 260px;
+}
+
+.result-cover {
+  width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+  object-fit: cover;
+}
+
+.result-cover.placeholder {
+  height: 260px;
+  background: linear-gradient(135deg,#ffd6f3,#ffe9f1);
+}
+
+/* right: playlist info */
+.result-right {
+  flex: 1 1 320px;
+  background: #fff7fb;
+  border-radius: 18px;
+  padding: 18px 20px 22px;
+  box-shadow: 0 14px 30px rgba(0,0,0,0.06);
+}
+
+.playlist-title {
+  margin: 0 0 10px;
+  font-size: 22px;
+  color: var(--text-dark);
+  font-weight: 700;
+}
+
+/* scroll area for tracks + embed */
+.playlist-scroll {
+  max-height: 340px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.track-list {
+  padding-left: 18px;
+  margin: 0 0 12px;
+  color: var(--text-dark);
+  font-size: 14px;
+}
+
+.track-list li {
+  margin-bottom: 4px;
+}
+
+/* embed */
+.spotify-embed {
+  margin-top: 8px;
+}
+
+/* button */
+.playlist-button-row {
+  margin-top: 14px;
+  text-align: right;
+}
+
+.spotify-link-btn {
+  display: inline-block;
+  background: var(--accent-pink);
+  color: #ffe6f7;
+  text-decoration: none;
+  padding: 9px 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 10px 24px rgba(255,77,166,0.28);
+}
+
+.spotify-link-btn:hover {
+  background: var(--accent-pink-dark);
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+
+@media (max-width: 800px) {
+  .hero {
+    min-height: 70vh;
+  }
+  .camera-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .camera-polaroid-wrapper {
+    width: 100%;
+  }
+  .camera-polaroid {
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+  .result-layout {
+    flex-direction: column;
+  }
+  .result-left {
+    flex: 1 1 auto;
+  }
+}
